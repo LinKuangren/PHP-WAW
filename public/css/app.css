@@ -1,0 +1,17 @@
+.alert-Error {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}
+
+.alert-Success {
+    padding: 20px;
+    background-color: #4cf436; /* green */
+    color: white;
+    margin-bottom: 15px;
+}
+
+:root {
+    background-color: white !important;
+}
