@@ -32,6 +32,7 @@ class RoadTripController extends AbstractController {
      */
     public function addRoadTrip() {
         $roadTripManager = new RoadTripManager();
+        var_dump($_POST);
         if(isset($_POST) && !empty($_POST)){
             if(empty($_POST['checkPoint']) || empty($_POST['checkPoint']['checkPointDepart']) || empty($_POST['checkPoint']['checkPointArrive'])){
                 $this->flashMessage->generateFlashMessage('CheckpointError', 'Error', 'Le point de départ et/ou d\'arrivée n\'as pas été défini');
