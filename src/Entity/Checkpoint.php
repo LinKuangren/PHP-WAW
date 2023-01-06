@@ -17,7 +17,7 @@ class Checkpoint {
     private $date_depart;
     private $date_arrive;
     private ?int $roadtrip_id;
-    private ?int $user_id;
+ 
 
     /**
      * @return int|null
@@ -115,21 +115,6 @@ class Checkpoint {
         $this->roadtrip_id = $roadtrip_id;
     }
 
-    /**
-     * @return User|null
-     */
-    public function getUserpId(): ?User
-    {
-        return $this->user->findOneBy(['id' => $this->user_id]);
-    }
-
-    /**
-     * @param $user_id
-     */
-    public function setUserId($user_id): void
-    {
-        $this->user_id = $user_id;
-    }
 
 
 
