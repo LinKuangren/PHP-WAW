@@ -17,6 +17,7 @@ class RoadTripManager extends AbstractManager {
             'intitule' => $roadTrip->getIntitule(),
             'type_vehicule' => $roadTrip->getTypeVehicule(),
             'user_id' => $roadTrip->getUserId(),
+            'created_at' => $roadTrip->getCreatedAt(),
         ]);
     }
 

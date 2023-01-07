@@ -15,6 +15,7 @@ class RoadTrip {
     private ?string $intitule;
     private ?string $type_vehicule;
     private ?int $user_id;
+    private $created_at;
 
     /**
      * @return int|null
@@ -88,6 +89,20 @@ class RoadTrip {
         $this->user_id = $user_id;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt() {
+        return $this->created_at;
+    }
+
+    /**
+     * @param $created_at
+     * @return void
+     */
+    public function setCreatedAt($created_at): void {
+        $this->created_at = $created_at;
+    }
 
 
 }
