@@ -41,6 +41,7 @@ class RoadTripController extends AbstractController {
                 $roadTrip = new RoadTrip();
                 $roadTrip->setIntitule($_POST['nomVoyage']);
                 $roadTrip->setTypeVehicule($_POST['typeVehicule']);
+                $roadTrip->setDescription($_POST['description']);
                 $roadTrip->setUserId($_SESSION['user']['id']);
                 $roadTrip->setCreatedAt(date('Y-m-d H:i:s'));
                 $roadTripManager->add($roadTrip);

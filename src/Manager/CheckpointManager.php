@@ -59,7 +59,6 @@ class CheckpointManager extends AbstractManager {
             'date_depart' => $checkpoint->getDateArrive(),
             'date_arrive' => $checkpoint->getDateDepart(),
             'roadtrip_id' => $checkpoint->getRoadtripId()->getId(),
-            'user_id' => $checkpoint->getUserId()->getId(),
         ], $checkpoint->getId());
     }
 

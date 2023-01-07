@@ -2,6 +2,7 @@
     <h1><?= $data['roadTrip'][0]->getIntitule() ?></h1>
     <h3><?= $data['roadTrip'][0]->getUser()->getEmail() ?></h3>
     <h2><?= $data['roadTrip'][0]->getTypeVehicule() ?></h2>
+    <h2><?= $data['roadTrip'][0]->getDescription() ?></h2>
     <div class="grid grid-cols-4 gap-4 mt-5">
         <?php foreach($data['listeCheckPoint'] as $currentCheckPoint) { ?>
             <div class="card w-46 bg-base-100 shadow-xl">

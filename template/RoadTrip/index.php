@@ -3,7 +3,7 @@
         <div class="card w-46 bg-base-100 shadow-xl">
             <div class="card-body">
                 <h2 class="card-title"><?= $currentRoadTrip->getIntitule() ?></h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <p><?= $currentRoadTrip->getDescription() ?></p>
                 <h3><?= $currentRoadTrip->getUser()->getEmail() ?></h3>
                 <div class="flex justify-end gap-5">
                     <?php if($_SESSION['user']['id'] == $currentRoadTrip->getUser()->getId()){ ?>

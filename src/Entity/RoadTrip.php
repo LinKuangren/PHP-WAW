@@ -14,6 +14,7 @@ class RoadTrip {
     private ?int $id;
     private ?string $intitule;
     private ?string $type_vehicule;
+    private ?string $Description;
     private ?int $user_id;
     private $created_at;
 
@@ -63,6 +64,22 @@ class RoadTrip {
     public function setTypeVehicule(?string $type_vehicule): void
     {
         $this->type_vehicule = $type_vehicule;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string|null $Description
+     */
+    public function setDescription(?string $Description): void
+    {
+        $this->Description = $Description;
     }
 
     /**
