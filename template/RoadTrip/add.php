@@ -64,9 +64,11 @@
                 </div>
             </div>
 
-            <button id="add-etape">
-                + Ajouter etape
-            </button>
+            <div id="add-etape" class="flex justify-center items-center">
+                <button class="border-black border-2 w-1/3 h-10 rounded-md">
+                    + Ajouter etape
+                </button>
+            </div>
             <div class="card w-46 bg-base-100 shadow-xl bg-[#FEEFDD]">
                 <div class="card-body">
                     <h3 class="card-title border-double border-b-2 border-black">Arrivée</h3>
