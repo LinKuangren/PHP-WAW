@@ -4,8 +4,7 @@ namespace Plugo\Services\ImageUploader;
 
 class ImageUploader {
 
-
-    public function uploadPicture($picture){
+    public function uploadPicture($picture, $folder = null){
         if(!file_exists('./images')){
             mkdir("./images");
         }
@@ -18,14 +17,22 @@ class ImageUploader {
 
         if(in_array($extension, $extensions)){
             $name = uniqid('', true) . '_' . $pictureName;
-            move_uploaded_file($tmpPicutre, './images/' . $name);
+            if($folder != null){
+                if(!file_exists('./images/' . $folder)){
+                    mkdir("./images/" . $folder);
+                }
+                $fullPath = 'images/' . $folder . '/' . $name;
+            }else{
+                $fullPath = 'images/' . $name;
+            }
+            move_uploaded_file($tmpPicutre, './' . $fullPath);
             $result = true;
         }else{
-            var_dump('non');
             $result = false;
         }
 
-        return $result;
+        return $fullPath;
     }
+
 
 }

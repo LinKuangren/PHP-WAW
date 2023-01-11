@@ -51,6 +51,8 @@ class RoadTripManager extends AbstractManager {
         return $this->update(RoadTrip::class, [
             'intitule' => $roadTrip->getIntitule(),
             'type_vehicule' => $roadTrip->getTypeVehicule(),
+            'image' => $roadTrip->getImage(),
+            'description' => $roadTrip->getDescription(),
             'user_id' => $roadTrip->getUserId(),
         ], $roadTrip->getId());
     }

@@ -14,6 +14,7 @@ class RoadTrip {
     private ?int $id;
     private ?string $intitule;
     private ?string $type_vehicule;
+    private ?string $image = null;
     private ?string $Description;
     private ?int $user_id;
     private $created_at;
@@ -69,6 +70,22 @@ class RoadTrip {
     /**
      * @return string|null
      */
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string|null $image
+     */
+    public function setImage(?string $image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return string|null
+     */
     public function getDescription(): ?string
     {
         return $this->description;
@@ -79,7 +96,7 @@ class RoadTrip {
      */
     public function setDescription(?string $Description): void
     {
-        $this->Description = $Description;
+        $this->description = $Description;
     }
 
     /**
