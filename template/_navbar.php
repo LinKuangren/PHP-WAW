@@ -35,7 +35,7 @@
         </div>
         <?php if(isset($_SESSION['user'])){ ?>
             <div class="navbar-end">
-                <a href="index.php?page=user_profile" class="btn">Mon Profil</a>
+                <a href="index.php?page=profil" class="btn">Mon Profil</a>
             </div>
         <?php } ?>
     </nav>

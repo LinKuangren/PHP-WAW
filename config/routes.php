@@ -9,9 +9,17 @@ const ROUTES = [
         'controller' => App\Controller\UserController::class,
         'method' => 'register',
     ],
+    'profil' => [
+        'controller' => App\Controller\UserController::class,
+        'method' => 'profil',
+    ],
     'login' => [
         'controller' => App\Controller\UserController::class,
         'method' => 'login',
+    ],
+    'changePassword' => [
+        'controller' => App\Controller\UserController::class,
+        'method' => 'changePassword',
     ],
     'logout' => [
         'controller' => App\Controller\UserController::class,

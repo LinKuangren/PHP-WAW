@@ -19,4 +19,11 @@ class UserManager extends AbstractManager {
         return $this->readOne(User::class, $clause);
     }
 
+    public function edit(User $user)
+    {
+        return $this->update(User::class, [
+            'password' => $user->getPassword()
+        ], $user->getId());
+    }
+
 }
