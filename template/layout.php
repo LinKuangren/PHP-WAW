@@ -15,7 +15,7 @@
     </head>
     <body>
         <?php include '_navbar.php' ?>
-        <main class="container mx-auto">
+        <main class="">
             <?php if(!empty($_SESSION['FLASH'])) { ?>
                 <?php foreach($_SESSION['FLASH'] as $flashMessage) { ?>
                     <div class="alert-<?= $flashMessage['type'] ?>"><?= $flashMessage['message'] ?></div>
