@@ -2,21 +2,22 @@
 
 namespace App\Entity;
 
-use App\Entity\User;
 use App\Manager\UserManager;
 
-class RoadTrip {
-
-    public function __construct() {
-        $this->userManager = new UserManager();
-    }
+class RoadTrip
+{
 
     private ?int $id;
     private ?string $intitule;
     private ?string $type_vehicule;
-    private ?string $Description;
+    private ?string $description;
     private ?int $user_id;
     private $created_at;
+
+    public function __construct()
+    {
+        $this->userManager = new UserManager();
+    }
 
     /**
      * @return int|null
@@ -75,11 +76,11 @@ class RoadTrip {
     }
 
     /**
-     * @param string|null $Description
+     * @param string|null $description
      */
-    public function setDescription(?string $Description): void
+    public function setDescription(?string $description): void
     {
-        $this->Description = $Description;
+        $this->description = $description;
     }
 
     /**
@@ -88,13 +89,6 @@ class RoadTrip {
     public function getUserId(): ?string
     {
         return $this->user_id;
-    }
-
-    /**
-     * @return \App\Entity\User
-     */
-    public function getUser(): ?User {
-        return $this->userManager->findOneBy(['id' => $this->user_id]);
     }
 
     /**
@@ -107,9 +101,18 @@ class RoadTrip {
     }
 
     /**
+     * @return User
+     */
+    public function getUser(): ?User
+    {
+        return $this->userManager->findOneBy(['id' => $this->user_id]);
+    }
+
+    /**
      * @return mixed
      */
-    public function getCreatedAt() {
+    public function getCreatedAt()
+    {
         return $this->created_at;
     }
 
@@ -117,7 +120,8 @@ class RoadTrip {
      * @param $created_at
      * @return void
      */
-    public function setCreatedAt($created_at): void {
+    public function setCreatedAt($created_at): void
+    {
         $this->created_at = $created_at;
     }
 
