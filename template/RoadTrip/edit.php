@@ -1,6 +1,6 @@
 <div class="container w-full mt-5">
     <h1 class="text-4xl text-center mb-12">Modifier le road trip</h1>
-    <form action="" method="POST" class="w-full">
+    <form action="" method="POST" class="w-full" enctype="multipart/form-data">
         <h2 class="flex md:items-center mb-6 justify-center text-3xl">Informations générales</h2>
         <hr class="mb-6">
         <div class="md:flex md:items-center md:mb-6 justify-center max-[600px]:m-6">
