@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Manager\UserManager;
+use App\Manager\CheckpointManager;
 
 class RoadTrip
 {
@@ -12,12 +13,18 @@ class RoadTrip
     private ?string $type_vehicule;
     private ?string $image = null;
     private ?string $description;
+    private ?int $roadtrip;
     private ?int $user_id;
     private $created_at;
 
     public function __construct()
     {
         $this->userManager = new UserManager();
+        $this->checkpoint = new CheckpointManager();
+    }
+
+    public function getAllCheckpoint($id){
+        return $this->checkpoint->findBy(['roadtrip_id' => $id]);
     }
 
     /**
