@@ -72,4 +72,58 @@ class UserController extends AbstractController {
 
         return $this->redirectToRoute('login');
     }
+
+    public function profil() {
+        $userManager = new UserManager();
+
+        $user = $userManager->findOneBy(['id' => $_SESSION['user']['id']]);
+
+        $iserror = false;
+        
+        if(isset($_POST) && !empty($_POST)){
+            
+            $checkCredentials = new CheckCredentials();
+            if(!$checkCredentials->checkPassword($_POST['password'], $_POST['passwordVerif'])){
+                $iserror = true;
+            }
+
+            if(!$iserror){
+                $user->setPassword($_POST['password']);
+                print_r($user);
+                $userManager->edit($user);
+
+                return $this->redirectToRoute('logout');
+            }
+    }
+
+        return $this->renderView('User/profil.php',['user' => $user]);   
+    }
+
+    public function changePassword() {
+        $userManager = new  UserManager();
+
+        $user = $userManager->findOneBy(['id' => $_GET['id']]);
+
+        $iserror = false;
+        dd('coucou');
+        if(isset($_POST) && !empty($_POST)){
+            
+            $checkCredentials = new CheckCredentials();
+            if(!$checkCredentials->checkPassword($_POST['password'], $_POST['passwordVerif'])){
+                $iserror = true;
+            }
+
+            if(!$iserror){
+                $user->setPassword($_POST['password']);
+                print_r($user);
+                $userManager->edit($user);
+
+                $this->flashMessage->generateFlashMessage('PasswordUpdateSuccess', 'success', 'Le mot de passe bien à était modifié !');
+                return $this->redirectToRoute('logout');
+            }else{
+                $this->flashMessage->generateFlashMessage('PasswordUpdate', 'Error', 'Error');
+            }
+    }
+    return $this->renderView('User/profil.php');
+    }
 }
