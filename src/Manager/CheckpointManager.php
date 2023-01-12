@@ -18,7 +18,7 @@ class CheckpointManager extends AbstractManager {
             'coordonnee' => $checkpoint->getCoordonnee(),
             'date_depart' => $checkpoint->getDateArrive(),
             'date_arrive' => $checkpoint->getDateDepart(),
-            'roadtrip_id' => $checkpoint->getRoadtripId()->getId(),
+            'roadtrip_id' => $checkpoint->getRoadtrip()->getId(),
             
         ]);
     }
@@ -58,7 +58,7 @@ class CheckpointManager extends AbstractManager {
             'coordonnee' => $checkpoint->getCoordonnee(),
             'date_depart' => $checkpoint->getDateArrive(),
             'date_arrive' => $checkpoint->getDateDepart(),
-            'roadtrip_id' => $checkpoint->getRoadtripId()->getId(),
+            'roadtrip_id' => $checkpoint->getRoadtrip()->getId(),
         ], $checkpoint->getId());
     }
 

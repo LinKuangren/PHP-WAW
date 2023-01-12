@@ -2,11 +2,14 @@
     <?php foreach($data['listeRoadTrip'] as $currentRoadTrip) { ?>
         <div class="card w-46 bg-base-100 shadow-xl">
             <div class="card-body">
+                <a href="/index.php?page=detailsRoadTrip&id=<?= $currentRoadTrip->getId() ?>">
+                    <img alt="Placeholder" class="block h-auto w-full" src="<?= $currentRoadTrip->getImage() != null ? $currentRoadTrip->getImage() : "https://picsum.photos/1920/1080/?random" ?>">
+                </a>
                 <h2 class="card-title"><?= $currentRoadTrip->getIntitule() ?></h2>
                 <p><?= $currentRoadTrip->getDescription() ?></p>
                 <h3><?= $currentRoadTrip->getUser()->getEmail() ?></h3>
                 <div class="flex justify-end gap-5">
-                    <?php if($_SESSION['user']['id'] == $currentRoadTrip->getUser()->getId()){ ?>
+                    <?php if(isset($_SESSION['user']) && $_SESSION['user']['id'] == $currentRoadTrip->getUser()->getId()){ ?>
                         <div class="card-actions">
                             <a href="/index.php?page=updateRoadTrip&id=<?= $currentRoadTrip->getId() ?>" class="btn btn-warning">Modifier</a>
                         </div>

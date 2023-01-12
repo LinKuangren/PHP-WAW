@@ -28,8 +28,6 @@ class CheckpointController extends AbstractController {
 
     }
 
-    public function updateCheckPoint() {
-
-    }
+    
 
 }

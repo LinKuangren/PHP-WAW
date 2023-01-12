@@ -10,6 +10,7 @@ class RoadTrip
     private ?int $id;
     private ?string $intitule;
     private ?string $type_vehicule;
+    private ?string $image = null;
     private ?string $description;
     private ?int $user_id;
     private $created_at;
@@ -65,6 +66,22 @@ class RoadTrip
     public function setTypeVehicule(?string $type_vehicule): void
     {
         $this->type_vehicule = $type_vehicule;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string|null $image
+     */
+    public function setImage(?string $image): void
+    {
+        $this->image = $image;
     }
 
     /**

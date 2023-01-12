@@ -14,10 +14,13 @@
                        value="<?= $data['roadTrip']->getIntitule() ?>" required>
             </div>
         </div>
-        <div class="md:flex md:items-center md:mb-6 justify-center max-[600px]:m-6">
-            <div class="md:w-1/6">
-                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-                       for="typeVehicule">Véhicule</label>
+        <div class="w-4/5 sm:w-3/6 lg:w-2/6 mt-10">
+                <label class="block text-gray-700 text-sm font-bold my-2" for="file">Image</label>
+                <input class="input shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white" type="file" id="file" name="file" accept="image/png, image/jpeg" value="<?= $data['roadTrip']->getImage() ?>">
+        </div>
+        <div class="md:flex md:items-center mb-6">
+            <div class="">
+                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="typeVehicule">Véhicule</label>
             </div>
             <div class="md:w-2/3">
                 <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"

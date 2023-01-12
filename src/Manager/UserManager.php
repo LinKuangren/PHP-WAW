@@ -15,6 +15,14 @@ class UserManager extends AbstractManager {
         ]);
     }
 
+    public function findAll() {
+        return $this->readMany(User::class);
+    }
+
+    public function findBy(array $clause = []) {
+        return $this->readMany(User::class, $clause);
+    }
+
     public function findOneBy(array $clause){
         return $this->readOne(User::class, $clause);
     }

@@ -7,6 +7,7 @@ use App\Manager\CheckpointManager;
 use Plugo\Controller\AbstractController;
 use App\Entity\RoadTrip;
 use App\Manager\RoadTripManager;
+use Plugo\Services\ImageUploader\ImageUploader;
 use Plugo\Services\FlashMessage\FlashMessage;
 
 class RoadTripController extends AbstractController {
@@ -17,7 +18,7 @@ class RoadTripController extends AbstractController {
     }
 
     /**
-     * Fonction qui récupère tout les roadtrip présents en base de données pour les afficher
+     * Afficher toute les roadtrips
      * @return string
      */
     public function allRoadTrip() {
@@ -27,7 +28,7 @@ class RoadTripController extends AbstractController {
     }
 
     /**
-     * Fonction qui permet a un utilisateur de créer un roadtrip avec des checkpoint
+     * Utilisateur qui peux créer un roadtrip et des checkpoints
      * @return string|null
      */
     public function addRoadTrip() {
@@ -41,6 +42,14 @@ class RoadTripController extends AbstractController {
                 $roadTrip = new RoadTrip();
                 $roadTrip->setIntitule($_POST['nomVoyage']);
                 $roadTrip->setTypeVehicule($_POST['typeVehicule']);
+                if(isset($_FILES['file']) && !empty($_FILES['file'])){
+                    $folderName = uniqid($_SESSION['user']['id']);
+                    $imageUploader = new ImageUploader();
+                    $result = $imageUploader->uploadPicture($_FILES, $folderName);
+                    if($result){
+                        $roadTrip->setImage($result);
+                    }
+                }
                 $roadTrip->setDescription($_POST['description']);
                 $roadTrip->setUserId($_SESSION['user']['id']);
                 $roadTrip->setCreatedAt(date('Y-m-d H:i:s'));
@@ -53,7 +62,7 @@ class RoadTripController extends AbstractController {
                     $checkPoint->setCoordonnee($currentCheckPoint['coordonnees']);
                     $checkPoint->setDateDepart($currentCheckPoint['date_depart']);
                     $checkPoint->setDateArrive($currentCheckPoint['date_arrive']);
-                    $checkPoint->setRoadtripId($roadTripManager->findBy([], ['id' => 'DESC'], 1)[0]->getId());
+                    $checkPoint->setRoadtrip($roadTripManager->findBy([], ['id' => 'DESC'], 1)[0]->getId());
 
                     $checkPointManager->add($checkPoint);
                 }
@@ -64,7 +73,7 @@ class RoadTripController extends AbstractController {
     }
 
     /**
-     * Fonction qui affiche le détails d'un roadtrip
+     * Affichage des détails d'un roadtrip
      * @return null
      */
     public function detailsRoadTrip() {
@@ -78,8 +87,7 @@ class RoadTripController extends AbstractController {
     }
 
     /**
-     * Fonction qui supprime un roadtrip séléctionné ainsi que tout ses checkpoint si l'utilisateur qui déclanche
-     * l'action est le même que celui qui as créer le checkpoint
+     * Suppression d'un roadtrip et de ses checkpoint de l'utilisateur
      * @return null
      */
     public function removeRoadTrip() {
@@ -125,6 +133,15 @@ class RoadTripController extends AbstractController {
 
                 $roadTrip->setIntitule($_POST['nomVoyage']);
                 $roadTrip->setTypeVehicule($_POST['typeVehicule']);
+                if(isset($_FILES['file']) && !empty($_FILES['file'])){
+                    $folderName = uniqid($_SESSION['user']['id']);
+                    $imageUploader = new ImageUploader();
+                    $result = $imageUploader->uploadPicture($_FILES, $folderName);
+                    if($result){
+                        $roadTrip->setImage($result);
+                    }
+                }
+                $roadTrip->setDescription($_POST['description']);
                 $roadTripManager->edit($roadTrip);
                 $this->flashMessage->generateFlashMessage('RoadTripUpdate', 'Success', 'Roadtrip modifié');
                 return $this->redirectToRoute('detailsRoadTrip', ['id' => $roadTrip->getId()]);
