@@ -1,11 +1,17 @@
-<h1 class="text-4xl text-center mb-12 mt-12">Ajouter un road trip</h1>
-<form action="" method="POST" class="w-full place-items-center">
-    <h2 class="flex md:items-center mb-6 justify-center text-3xl">Informations générales</h2>
-    <hr class="mb-6">
-    <div class="md:flex md:items-center md:mb-6 justify-center max-[600px]:m-6">
-        <div class="md:w-1/6">
-            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-                   for="nomVoyage">Intitulé</label>
+<div class="container w-full mt-5">
+    <h1 class="text-4xl text-center mb-12">Ajouter un road trip</h1>
+    <form action="" method="POST" class="w-full place-items-center" enctype="multipart/form-data">
+        <h2 class="flex md:items-center mb-6 justify-center text-3xl">Informations générales</h2>
+        <hr class="mb-6">
+        <div class="md:flex md:items-center md:mb-6 justify-center max-[600px]:m-6">
+            <div class="md:w-1/6">
+                <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+                       for="nomVoyage">Intitulé</label>
+            </div>
+            <div class="md:w-2/3">
+                <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                       type="text" id="nomVoyage" name="nomVoyage" placeholder="Voyage..." required>
+            </div>
         </div>
         <div class="md:w-2/3">
             <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
