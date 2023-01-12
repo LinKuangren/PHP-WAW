@@ -1,11 +1,10 @@
 <header>
     <nav class="p-5 bg-[#FEEFDD] shadow md:flex md:items-center md:justify-between">
         <div class="flex justify-between items-center ">
-            <span class="text-2xl text-black font-[Poppins] cursor-pointer">
+            <a href="index?page=home" class="text-2xl text-black font-[Poppins] cursor-pointer">
                 <img class="h-10 inline"
-                src="https://tailwindcss.com/_next/static/media/social-square.b622e290e82093c36cca57092ffe494f.jpg">
-                WaW
-            </span>
+                src="../public/img/menu/logo.png">
+            </a>
 
             <span class="text-3xl text-black cursor-pointer mx-2 md:hidden block">
                 <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
