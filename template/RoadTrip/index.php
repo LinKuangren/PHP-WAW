@@ -1,5 +1,5 @@
-<div class="h-96 flex flex-col justify-end items-center text-[#FFFF] bg-[url('https://picsum.photos/200')] w-full relative">
-    <h1 class="font-bold absolute top-52">Liste des road trips</h1>
+<div class="h-[60vh] md:h-[91vh] flex flex-col justify-end items-center text-[#000] bg-[url('../public/img/imgHeader/imgFond.jpeg')] w-full relative bg-cover bg-no-repeat ">
+    <h1 class="font-bold absolute top-52 text-2xl md:text-6xl">Liste des road trips</h1>
     <div class="flex">
         <a href="#">
             <img src="https://img.icons8.com/color/48/null/facebook.png" alt="Logo de Facebook"/>
@@ -12,18 +12,17 @@
         </a>
     </div>
 </div>
-<h1 class="max-[600px]:text-center  text-black p-8 font-bold">Publications récentes</h1>
-<div>
 
-</div>
-<h1 class="max-[600px]:text-center text-black p-8 font-bold">Publications</h1>
-<div class="grid md:p-10 md:grid-cols-3 max-[600px]:grid-cols-1 gap-4 max-[600px]:p-5">
+<h1 class="max-[600px]:text-center text-black p-8 font-bold text-xl md:text-3xl">Publications</h1>
+<div class="grid md:p-10 md:grid-cols-3 grid-cols-1 gap-8 max-[600px]:p-5">
     <?php foreach($data['listeRoadTrip'] as $index => $currentRoadTrip) { ?>
         <?php $checkpoint = $currentRoadTrip->getAllCheckpoint($currentRoadTrip->getId()); ?>
-        <div class="card w-46 bg-base-100 shadow-xl">
-            <div class="card-body">
-                <div class="flex justify-center w-full h-44">
-                    <img class="w-full " src="https://picsum.photos/200" alt="">
+        <div class="card w-auto bg-[#FEEFDD] text-black shadow-xl w-43">
+            <div class="card-body ">
+                <div class="flex justify-center w-full h-auto ">
+                    <a href="detailsRoadTrip/<?= $currentRoadTrip->getId() ?>">
+                    <img alt="Placeholder" class="block h-auto w-full" src="<?= $currentRoadTrip->getImage() != null ? $currentRoadTrip->getImage() : "https://picsum.photos/1920/1080/?random" ?>">
+</a>
                 </div>
                 <h2 class="card-title"><?= $currentRoadTrip->getIntitule() ?></h2>
                 <h3><?= $currentRoadTrip->getUser()->getEmail() ?></h3>
