@@ -1,5 +1,5 @@
 <main class="text-[#161616] ">
-        <div class="page_de_garde h-[91vh] flex items-center justify-center text-center bg-[url('https://picsum.photos/200')]" >
+        <div class="page_de_garde h-[91vh] flex items-center justify-center text-center bg-[url('../public/imgHome/Couv1.jpeg')] bg-cover bg-no-repeat bg-center" >
             <h1 class="text-2xl md:text-4xl font-bold font-black">L'expérience Where are we (WaW), <br/> c'est ici et maintenant</h1>
             
         </div>
@@ -9,8 +9,8 @@
         </div>
         <h1 class="font-bold text-2xl text-center">Comment cela fonctionne?</h1>
         <div class="grid grid-cols-1 md:grid-cols-2">
-            <div class="flex flex-col items-center justify-center md:pr-5 p-10 gap-5 max-[600px]:h-[40vh]">
-                <img class="md:w-full" src="https://picsum.photos/200" alt="">
+            <div class="flex flex-col items-center justify-center md:pr-5 p-10 gap-5 h-auto">
+                <img class="md:w-full" src="../public/imgHome/kevin-schmid-Mta8r0bxhbo-unsplash-scaled.jpg" alt="">
             </div>
             <div class="grid grid-cols-1 ">
                 <div class="flex flex-col max-[600px]:items-center max-[600px]:justify-center md:pl-0 p-10 gap-5">
